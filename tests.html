@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Test Suite</title>
+    <link rel="stylesheet" href="///code.jquery.com/qunit/qunit-2.14.0.css">
+</head>
+<body>
+<div id="qunit"></div>
+<div id="qunit-fixture"></div>
+<script src="///code.jquery.com/qunit/qunit-2.14.0.js"></script>
+<script src="main.js"></script>
+<script>
+    QUnit.module('generate_password', function () {
+        QUnit.test('should generate password with length of 8', function (assert) {
+            assert.equal(generate_password(true, true, true, true, 8).length, 8);
+        });
+        QUnit.test('should generate password with length of 20', function (assert) {
+            assert.equal(generate_password(true, true, true, true, 20).length, 20);
+        });
+        QUnit.test('should generate password default length = 10', function (assert) {
+            assert.equal(generate_password(true, true, true, true).length, 10);
+        });
+        QUnit.test('should return empty password if all the settings is false', function (assert) {
+            assert.equal(generate_password(false, false, false, false).length, 0);
+        });
+        QUnit.test('should return only upper case characters', function (assert) {
+            const password = generate_password(true, false, false, false)
+            assert.equal(/^[A-Z]*$/.test(password), true);
+            assert.equal(/^[a-z]*$/.test(password), false);
+            assert.equal(/^[0-9]*$/.test(password), false);
+            assert.equal(/^(!@#\$%\^&\*\(\){}\[]=<>\/,\.\|~\?)*$/.test(password), false);
+        });
+        QUnit.test('should return only lower case characters', function (assert) {
+            const password = generate_password(false, true, false, false)
+            assert.equal(/^[A-Z]*$/.test(password), false);
+            assert.equal(/^[a-z]*$/.test(password), true);
+            assert.equal(/^[0-9]*$/.test(password), false);
+            assert.equal(/^(!@#\$%\^&\*\(\){}\[]=<>\/,\.\|~\?)*$/.test(password), false);
+        });
+        QUnit.test('should return only numbers', function (assert) {
+            const password = generate_password(false, false, true, false)
+            assert.equal(/^[A-Z]*$/.test(password), false);
+            assert.equal(/^[a-z]*$/.test(password), false);
+            assert.equal(/^[0-9]*$/.test(password), true);
+            assert.equal(/^(!@#\$%\^&\*\(\){}\[]=<>\/,\.\|~\?)*$/.test(password), false);
+        });
+        QUnit.test('should return upper, lower case, numbers and symbols', function (assert) {
+            const password = generate_password(true, true, true, true)
+            assert.equal(/[A-Z]*$/.test(password), true);
+            assert.equal(/[a-z]*$/.test(password), true);
+            assert.equal(/[0-9]*$/.test(password), true);
+            assert.equal(/(!@#\$%\^&\*\(\){}\[]=<>\/,\.\|~\?)*$/.test(password), true);
+        });
+    });
+
+</script>
+
+<script>
+    QUnit.module('getRandomUpperCase', function () {
+        QUnit.test('should return only upper case character', function (assert) {
+            const character = getRandomUpperCase()
+            assert.equal(character === character.toUpperCase(), true);
+        });
+    });
+</script>
+<script>
+    QUnit.module('getRandomNumber', function () {
+        QUnit.test('should return only lower case character', function (assert) {
+            const character = getRandomNumber()
+            assert.equal(isNaN(character), false);
+        });
+    });
+</script>
+</body>
+</html>

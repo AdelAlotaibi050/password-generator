@@ -1,17 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-  <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+          integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+          crossorigin="anonymous"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css"/>
     <title>كلمة سر</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3 bg-white navbar-rounded shadow navbar-custom">
-  <a class="navbar-brand pull-right " style="font-family: 'Cairo', sans-serif;" href="">   كلمة سر  <i class="fas fa-unlock-alt mr-2"></i></a>
+    <a class="navbar-brand pull-right " style="font-family: 'Cairo', sans-serif;" href=""> كلمة سر <i
+            class="fas fa-unlock-alt mr-2"></i></a>
 </nav>
 
 <div class="container">
@@ -20,50 +25,52 @@
     </div>
     <div class="row">
         <div class="col-md-6">
-            <div class="container-box shadow-sm p-3 bg-white rounded">
-            <p class="draggable" id="numbers" draggable="true">أرقام</p>
+            <div class="row">
+                <div class="col-md-12 container-box shadow-sm p-12 bg-white rounded">
+                    <p class="draggable" id="numbers" draggable="true">أرقام</p>
+                </div>
+                <div class="col-md-12 container-box shadow-sm p-12 bg-white rounded">
+                    <p class="draggable" id="uppercase" draggable="true">حروف كبيرة</p>
+                </div>
+                <div class="col-md-12 container-box shadow-sm p-12 bg-white rounded">
+                    <p class="draggable" id="special" draggable="true">(%&^*$#@ّ ّ ) علامات مميزة </p>
+                </div>
+                <div class="col-md-12 container-box shadow-sm p-12 bg-white rounded">
+                    <p class="draggable" id="lowercase" draggable="true">حروف صغيرة</p>
+                </div>
             </div>
+
         </div>
-      
-         <div class="col-md-6">
-            <div class="container-box shadow-sm p-3 bg-white rounded">
-            <p class="draggable" id="uppercase" draggable="true">حروف كبيرة</p>
-            </div>
+        <div class="col-md-6 container-box shadow-sm p-3 bg-white rounded" id="box-to-contain">
+            <p class="text-center" id="to-remove">أفلت هنا</p>
         </div>
-    </div>
-    
-     <div class="container-box shadow-sm p-3 bg-white rounded" id="box-to-contain">
-                <p class="text-center" id="to-remove">أفلت هنا</p>
+
+
     </div>
 
-    <div class="row">
+
+    <div class="row mt-3">
+        <div class="col-md-6 input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">طول كلمة المرور</span>
+            </div>
+            <input type="number" id="length" min="0" value="12" step="1" class="form-control" aria-label="Small"
+                   aria-describedby="inputGroup-sizing-sm">
+        </div>
         <div class="col-md-6">
-            <div class="container-box shadow-sm p-3 bg-white rounded">
-            <p class="draggable" id="special" draggable="true">(%&^*$#@ّ ّ ) علامات مميزة </p>
-            </div>
-        </div>
-      
-         <div class="col-md-6">
-            <div class="container-box shadow-sm p-3 bg-white rounded">
-            <p class="draggable" id="lowercase" draggable="true">حروف صغيرة</p>
-            </div>
-        </div>
-    </div>
-    <div class="row  mt-3">
-         <div class="col-md-6">
             <button class="btn btn-dark" onclick="showPassword();">احصل على كلمة السر</button>
         </div>
     </div>
 </div>
 
 <div id="password" class="overlay">
-  <a href="javascript:void(0)" class="closebtn" onclick="HidePassword()">&times;</a>
-  <div class="overlay-content" id="password_content">
-  
-  </div>
+    <a href="javascript:void(0)" class="closebtn" onclick="hidePassword()">&times;</a>
+    <div class="overlay-content" id="password_content">
+
+    </div>
 </div>
 
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.2.0/zxcvbn.js"></script>
 <script src="main.js"></script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 const draggable = document.querySelectorAll('.draggable')
 const containers = document.querySelectorAll('.container-box')
 const to_remove = document.getElementById('to-remove')
-const to_remove = document.getElementById('box-to-contain')
+const box_contain = document.getElementById('box-to-contain')
 const CHARACTER_SETS = [
     "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
     "abcdefghijklmnopqrstuvwxyz",

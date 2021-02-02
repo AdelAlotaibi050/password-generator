@@ -63,10 +63,10 @@ function doGenerate(uppercase, lowercase, numbers, special, length = 10) {
 
     // Check length
     if (length < 2) {
-        alert("طول كلمة المرور جدا قصير");
+        alert("طول كلمة المرور  قصير جدا");
         return;
     } else if (length > 50) {
-        alert("طول كلمة المرور جدا كبير");
+        alert("طول كلمة المرور  كبير جدا");
         return;
     }
 
@@ -190,7 +190,7 @@ function showPasswordStrength(result, h1_element) {
     } else if (result.score === 3) {
         h1_element.style.color = "rgb(95, 216, 137)";
     } else if (result.score === 4) {
-        h1_element.style.color = "rgb(95, 216, 137)";
+        h1_element.style.color = "rgb(64, 167, 100)";
     }
 }
 

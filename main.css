@@ -29,8 +29,31 @@ p {
     font-family: 'Cairo',sans-serif;
 }
 
-
-
+.dot {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.label-indicator {
+    display: inline;
+    padding: 1rem;
+}
+.strong {
+  background-color: rgb(64, 167, 100);
+}
+.medium-strong {
+    background-color: rgb(95, 216, 137);
+}
+.medium {
+    background-color: rgb(152, 203, 111);
+}
+.weak {
+    background-color: rgb(216, 209, 69);
+}
+.very-weak {
+    background-color: rgb(241, 155, 43);
+}
 .overlay {
     height: 0%;
     width: 100%;
